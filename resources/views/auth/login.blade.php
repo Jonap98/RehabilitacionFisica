@@ -6,14 +6,14 @@
 
 @include('header')
 <body>
-	<img class="wave" src="{{asset('assets/media/images/R1.svg')}}">
+	<img class="wave" src="{{asset('assets/media/images/R2.svg')}}">
 	<div class="container">
 		<div class="img">
-		</div>
+        </div>
 		<div class="login-content">
             <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
-				<img src="{{asset('assets/media/images/avatar.svg')}}">
+				<img src="{{asset('assets/media/images/007-boy-2.svg')}}">
 				<h2 class="title">Comenzar</h2>
            		<div class="input-div one">
            		   <div class="i">

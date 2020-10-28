@@ -230,15 +230,15 @@ a:hover{
 	}
 }
 </style>
-<body>
-	<img class="wave" src="{{asset('assets/media/images/R1.svg')}}">
-	<div class="container">
+<body class="overflow-auto">
+	<img class="wave" src="{{asset('assets/media/images/R2.svg')}}">
+	<div class="container" >
 		<div class="img">
 		</div>
 		<div class="login-content">
             <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
-				<img src="{{asset('assets/media/images/avatar.svg')}}">
+				<img src="{{asset('assets/media/images/007-boy-2.svg')}}">
                 <h2 class="title">Registro</h2>
                 <div class="input-div one">
                     <div class="i">
@@ -247,6 +247,45 @@ a:hover{
                     <div class="div">
                         <input placeholder="Nombre" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                            </span>
+                        @enderror
+                    </div>
+				</div>
+				<div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input placeholder="Apellido Paterno" id="paterno" type="text" class="form-control @error('paterno') is-invalid @enderror" name="paterno" value="{{ old('paterno') }}" required autocomplete="paterno" autofocus>
+                        @error('paterno')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                            </span>
+                        @enderror
+                    </div>
+				</div>
+				<div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input placeholder="Apellido Materno" id="materno" type="text" class="form-control @error('materno') is-invalid @enderror" name="materno" value="{{ old('materno') }}" required autocomplete="materno" autofocus>
+                        @error('materno')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                            </span>
+                        @enderror
+                    </div>
+				</div>
+				<div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input placeholder="Usuario" id="user" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus>
+                        @error('user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{$message}}</strong>
                             </span>
