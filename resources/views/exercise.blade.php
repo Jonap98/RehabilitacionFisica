@@ -18,7 +18,7 @@
             <!--begin::Details-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Terapias</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Ejercicios</h5>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
@@ -47,7 +47,7 @@
                                 <div class="wizard-steps p-8 p-lg-10">
                                     <!--begin::Detalles generales-->
                                     <div class="wizard-step" data-wizard-type="step" data-wizard-state="current">
-                                            <h3 class="wizard-title"><strong>Crear tipo de terapia</strong></h3>
+                                            <h3 class="wizard-title"><strong>Crear ejercicio</strong></h3>
                                     </div>                                  
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                             <div class="col-xl-12 col-xxl-7">
                                 <div id="app">
                                     <!--begin::Form Wizard-->
-                                <form class="form" action="{{action('TherapyController@storeTherapy')}}" method="post" enctype="multipart/form-data">
+                                <form class="form" action="{{action('ExerciseController@storeExercise')}}" method="post" enctype="multipart/form-data">
                                         
                                         {{ csrf_field() }}
                                         <div id="main">
@@ -71,26 +71,30 @@
                                                                 <input  class="form-control form-control-solid" name="name" type="text" />
                                                             </div>
                                                         </div>
-                                                            <div class="form-group-row">
-                                                                <label class="col-form-label text-right col-lg-3 col-sm-12">Imagen</label>
-                                                                <div class="custom-file col-lg-6 col-md-9 col-sm-12">
-                                                                    <input type="file" name="image" id="" accept="image/jpeg,image/png" class="custom-file-input" id="customFile"/>
-                                                                    <label for="image" class="custom-file-label ">
-                                                                    <br>
-                                                                    @error('image')
-                                                                        <small class="text-danger">{{$message}}</small>
-                                                                    @enderror
-                                                                    </label>
-                                                                </div>
+                                                        <div class="form-group-row">
+                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Video</label>
+                                                            <div class="custom-file col-lg-6 col-md-9 col-sm-12">
+                                                                <input type="file" name="path" id="" accept="video/*" class="custom-file-input" id="customFile"/>
+                                                                <label for="video" class="custom-file-label ">
+                                                                <br>
+                                                                @error('video')
+                                                                    <small class="text-danger">{{$message}}</small>
+                                                                @enderror
+                                                                </label>
                                                             </div>
-                                                        <!--
-                                                        <div class="form-group row">
-                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Nombre</label>
-                                                            <div class="col-lg-6 col-md-9 col-sm-12">
-                                                                <input  class="form-control form-control-solid" name="image" type="text" />
-                                                            </div>                                                                                   
                                                         </div>
-                                                        -->
+                                                        <br>
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Tipo de terapia</label>
+                                                            <div class="col-lg-6">
+                                                            <select class="form-control" id="id_therapy" name="id_therapy">
+                                                                <option value="">Selecciona el proyecto</option> 
+                                                                @foreach ($therapies as $th)
+                                                                    <option value="{{$th->id}}">{{$th->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

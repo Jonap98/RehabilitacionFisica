@@ -19,7 +19,7 @@
   --white: #ffffff;
   --gray: #80808F;
   --gray-dark: #1B283F;
-  --primary: #0BB783;
+  --primary: #5FC0C8;
   --secondary: #E5EAEE;
   --success: #1BC5BD;
   --info: #8950FC;
@@ -2491,7 +2491,7 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #0BB783;
+  background-color: #5FC0C8;
   border-color: #0BB783;
   -webkit-box-shadow: none;
   box-shadow: none; }
@@ -5977,7 +5977,7 @@ a.close.disabled {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #0BB783 !important; }
+  background-color: #5FC0C8 !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
@@ -57275,7 +57275,7 @@ body {
       -webkit-box-align: stretch;
       -ms-flex-align: stretch;
       align-items: stretch;
-      background-color: #0BB783; }
+      background-color: #5FC0C8; }
       .header .header-top .container,
       .header .header-top .container-fluid,
       .header .header-top .container-sm,
@@ -57387,7 +57387,7 @@ body {
     box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.1);
     height: 55px;
     min-height: 55px;
-    background-color: #0BB783;
+    background-color: #5FC0C8;
     z-index: 2; }
     .header-mobile-fixed .header-mobile {
       position: fixed;

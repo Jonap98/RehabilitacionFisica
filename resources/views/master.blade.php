@@ -8,17 +8,40 @@
         <div id="kt_header_mobile" class="header-mobile bg-primary header-mobile-fixed">
             <!--begin::Logo-->
             <a href="{{ URL::to('/') }}">
-                <img alt="Logo" src="{{asset('assets/media/logos/logoBlanco.png')}}" class="max-h-30px" />
+                <img alt="Logo" src="{{asset('assets/media/logos/LogoWhite.png')}}" class="max-h-45px" />
                 
             </a>
             <!--end::Logo-->
-            <div class="reloj" id="reloj"></div>   
+
+            
+            {{--
+            <a href=""><span class="text-white font-weight-bolder d-md-inline">Inicio</span></a>
+
+            <div class="reloj" id="reloj"></div>  --}}
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
-                <button class="btn p-0 burger-icon burger-icon-left ml-4" id="kt_header_mobile_toggle">
-                    <span></span>
-                </button>
-                <button class="btn p-0 ml-2" id="kt_header_mobile_topbar_toggle">
+                <a href="">
+                    <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+                        <div class="d-flex flex-column text-right pr-3">                            
+                            <h3><strong>Inicio</strong></h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+                        <div class="d-flex flex-column text-right pr-3">
+                            <h3><strong>Pacientes</strong></h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{action('ExerciseController@index')}}">
+                    <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+                        <div class="d-flex flex-column text-right pr-3">
+                            <h3><strong>Carga</strong></h3>
+                        </div>
+                    </div>
+                </a>
+                <button class="btn btn-hover-transparent-white p-0 ml-2" id="kt_header_mobile_topbar_toggle">
                     <span class="svg-icon svg-icon-xl">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -41,6 +64,8 @@
                 <!--begin::Wrapper-->
                 <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
                 
+                    @include('menu')
+
                     @yield('content')
                                 
                     <!--begin::Footer-->
@@ -50,13 +75,13 @@
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted font-weight-bold mr-2"><?= date("Y")."©" ?></span>
-                                <a href="http://iselsa.mx" target="_blank" class="text-dark-75 text-hover-primary">Iselsa Construcciones</a> -
-                                <a href="http://rhinobyte.mx" target="_blank" class="text-dark-75 text-hover-primary">Rhinobyte</a>
+                                <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Reabilitación App - </a>
+                                <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Developed by JonaP9.8</a>
                             </div>
                             <!--end::Copyright-->
                             <!--begin::Nav-->
                             <div class="nav nav-dark order-1 order-md-2">
-                                Versión 1.0.5
+                                Versión 1.0
                             </div>
                             <!--end::Nav-->
                         </div>
@@ -82,6 +107,7 @@
 				<!--end::Svg Icon-->
 			</span>
 		</div>
-		<!--end::Scrolltop-->
-      
+        <!--end::Scrolltop-->
+        @include('userpanel')
+    
 @include('footer')

@@ -11,9 +11,12 @@
 		<link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-		
 		<!--end::Global Theme Styles-->
 		<!--begin Toastr-->
+		<!--begin::Page Vendors Styles(used by this page)-->
+		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css?v=7.0.4" rel="stylesheet" type="text/css" />
+		<link href="assets/plugins/custom/leaflet/leaflet.bundle.css?v=7.0.4" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendors Styles-->
 		
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
@@ -36,4 +39,12 @@
 		</style>
 		
 	</head>
+	<!--begin::Global Theme Bundle(used by all pages)-->
+	<script src="assets/plugins/global/plugins.bundle.js?v=7.0.4"></script>
+	<script src="assets/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.4"></script>
+	<script src="assets/js/scripts.bundle.js?v=7.0.4"></script>
+	<!--end::Global Theme Bundle-->
+	<!--begin::Page Scripts(used by this page)-->
+		<script src="assets/js/pages/widgets.js?v=7.0.4"></script>
+		<!--end::Page Scripts-->
 	<!--end::Head-->
