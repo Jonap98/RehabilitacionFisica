@@ -8,5 +8,5 @@ class Therapy extends Model
 {
     protected $table = 'therapy';
 
-    protected $fillable = ['name', 'image', 'active'];
+    protected $fillable = ['id', 'name', 'image', 'active'];
 }

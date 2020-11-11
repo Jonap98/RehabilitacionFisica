@@ -47,7 +47,7 @@
                                 <div class="wizard-steps p-8 p-lg-10">
                                     <!--begin::Detalles generales-->
                                     <div class="wizard-step" data-wizard-type="step" data-wizard-state="current">
-                                            <h3 class="wizard-title"><strong>Crear ejercicio</strong></h3>
+                                            <h3 class="wizard-title"><strong>Programar rutina</strong></h3>
                                     </div>                                  
                                 </div>
                             </div>
@@ -57,42 +57,59 @@
                             <div class="col-xl-12 col-xxl-7">
                                 <div id="app">
                                     <!--begin::Form Wizard-->
-                                <form class="form" action="{{action('ExerciseController@storeExercise')}}" method="post" enctype="multipart/form-data">
-                                        
+                                <form class="form" action="{{ $action }}" method="post">
                                         {{ csrf_field() }}
                                         <div id="main">
                                             <!--Pasos-->
                                             <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">    
                                                 <div class="row">
                                                     <div class="col-xl-12">
-                                                        <div class="form-group row">
-                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Nombre</label>
-                                                            <div class="col-lg-6 col-md-9 col-sm-12">
-                                                                <input  class="form-control form-control-solid" name="name" type="text" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group-row">
-                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Video</label>
-                                                            <div class="custom-file col-lg-6 col-md-9 col-sm-12">
-                                                                <input type="file" name="path" id="" accept="video/*" class="custom-file-input" id="customFile"/>
-                                                                <label for="video" class="custom-file-label ">
-                                                                <br>
-                                                                @error('video')
-                                                                    <small class="text-danger">{{$message}}</small>
-                                                                @enderror
-                                                                </label>
-                                                            </div>
-                                                        </div>
                                                         <br>
                                                         <div class="form-group row">
-                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Tipo de terapia</label>
+                                                            @foreach ($users as $usr)
+                                                                <label class="col-form-label text-right col-lg-3 col-sm-12">Usuario</label>
+                                                                <h3 class="font-weight-bold col-form-label text-right col-lg-3 col-sm-12"><strong>{{$usr->name}} {{$usr->paterno}}</strong></h3>
+                                                            @endforeach
                                                             <div class="col-lg-6">
-                                                            <select class="form-control" id="id_therapy" name="id_therapy">
-                                                                <option value="">Selecciona la terapia</option> 
-                                                                @foreach ($therapies as $th)
-                                                                    <option value="{{$th->id}}">{{$th->name}}</option>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Ejercicio</label>
+                                                            <div class="col-lg-6">
+                                                            <select class="form-control" id="id_exercise" name="id_exercise">
+                                                                <option value="">Selecciona el ejercicio</option> 
+                                                                @foreach ($exercises as $ex)
+                                                                    <option value="{{$ex->id}}">{{$ex->name}}</option>
                                                                 @endforeach
                                                             </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Fecha inicial</label>
+                                                            <div class="col-lg-6 col-md-9 col-sm-12">
+                                                                <div class="input-group date">
+                                                                    <input v-model="date" type="text" name="date" class="form-control" 
+                                                                    readonly="readonly" value="{{ date('m-d-Y') }}" id="kt_datepicker_3" />
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">
+                                                                            <i class="la la-calendar"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label text-right col-lg-3 col-sm-12">Fecha final</label>
+                                                            <div class="col-lg-6 col-md-9 col-sm-12">
+                                                                <div class="input-group date">
+                                                                    <input v-model="date" type="text" name="date" class="form-control" 
+                                                                    readonly="readonly" value="{{ date('m-d-Y') }}" id="kt_datepicker_3" />
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">
+                                                                            <i class="la la-calendar"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -133,9 +150,18 @@
     <script src="{{asset('assets/js/pages/crud/datatables/basic/headers-r-solicitudes.js?v=7.0.4')}}"></script>
     <!--begin::Page Scripts(used by providers page)-->
     <script src="{{asset('assets/js/pages/widgets.js?v=7.0.4')}}"></script>
+    <!--begin::Page Scripts(used by this page)-->
+	<script src="{{asset('assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js?v=7.0.4')}}"></script>
+	<!--end::Page Scripts-->
     <script type="text/javascript">
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+       
+        $(document).ready(function () {
+            $('.selectPickerLive').selectpicker();
         })
     </script>
 @endsection

@@ -20,14 +20,14 @@
             <div class="reloj" id="reloj"></div>  --}}
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
-                <a href="">
+            <a href="{{action('HomeController@index')}}">
                     <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                         <div class="d-flex flex-column text-right pr-3">                            
                             <h3><strong>Inicio</strong></h3>
                         </div>
                     </div>
                 </a>
-                <a href="">
+            <a href="{{action('UserController@index')}}">
                     <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                         <div class="d-flex flex-column text-right pr-3">
                             <h3><strong>Pacientes</strong></h3>
@@ -75,8 +75,8 @@
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted font-weight-bold mr-2"><?= date("Y")."©" ?></span>
-                                <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Reabilitación App - </a>
-                                <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Developed by JonaP9.8</a>
+                                <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Reabilitación App  </a>
+                                <!--<a href="#" target="_blank" class="text-dark-75 text-hover-primary">Developed by JonaP9.8</a>-->
                             </div>
                             <!--end::Copyright-->
                             <!--begin::Nav-->

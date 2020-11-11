@@ -20,7 +20,7 @@
                         <!--begin::Header Nav-->
                         <ul class="menu-nav">
                             <li class="menu-item menu-item-active" aria-haspopup="true">
-                                <a href="">
+                            <a href="{{action('HomeController@index')}}">
                                     <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                                         <div class="d-flex flex-column text-right pr-3">                            
                                             <h3><strong>Inicio</strong></h3>
@@ -29,7 +29,7 @@
                                 </a>
                             </li>
                             <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-                                <a href="">
+                            <a href="{{action('UserController@index')}}">
                                     <div class="btn btn-icon btn-hover-transparent-white w-auto d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                                         <div class="d-flex flex-column text-right pr-3">
                                             <h3><strong>Pacientes</strong></h3>
@@ -62,7 +62,7 @@
                             <span class="text-white font-weight-bolder font-size-sm d-none d-md-inline">{{ Auth::user()->name }}</span>
                         </div>
                         <span class="symbol symbol-35">
-                            <span class="symbol-label font-size-h5 font-weight-bold text-white bg-white-o-30">{{ strtoupper(substr(Auth::user()->name,0,1))  }}</span>
+                        <span class="symbol-label font-size-h5 font-weight-bold text-white bg-white-o-30">{{ strtoupper(substr(Auth::user()->name,0,1)) }}{{strtoupper(substr(Auth::user()->paterno,0,1))}}</span>
                         </span>
                     </div>
                 </div>

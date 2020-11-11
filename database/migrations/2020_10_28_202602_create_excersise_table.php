@@ -19,6 +19,7 @@ class CreateExcersiseTable extends Migration
             $table->text('path');
             $table->integer('id_therapy')->unsigned();
             $table->foreign('id_therapy')->references('id')->on('therapy');
+            $table->tinyInteger('active')->default(1);
             $table->timestamps();
         });
     }

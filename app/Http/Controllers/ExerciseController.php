@@ -42,4 +42,5 @@ class ExerciseController extends Controller
 
         return back();
     }
+
 }

@@ -8,5 +8,5 @@ class Exercise extends Model
 {
     protected $table = 'exercise';
 
-    protected $fillable = ['name', 'path', 'id_therapy', 'active'];
+    protected $fillable = ['id', 'name', 'path', 'id_therapy', 'active'];
 }
