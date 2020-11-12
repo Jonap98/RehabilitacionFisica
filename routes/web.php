@@ -28,3 +28,4 @@ Route::get('/list/user', 'UserController@index')->name('list.user');
 Route::get('/assignment/{id}', 'AssignmentController@index')->name('assignment');
 Route::post('/asignment/{id}/store', 'AssignmentController@storeAssignment')->name('assignment');
 Route::get('/workout/{id}', 'WorkoutController@index')->name('workout');
+Route::post('/workout/{id}/store', 'WorkoutController@storeWorkout')->name('workout');
