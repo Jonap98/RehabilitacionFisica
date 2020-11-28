@@ -62,13 +62,13 @@
                                             </div>
                                             <div class="ml-3">
                                             <span class="text-dark-75 font-weight-bold line-height-sm d-block pb-2">{{$usr->name}}</span>
-                                            <a href="#" class="text-muted text-hover-primary">{{$usr->paterno}} {{$usr->materno}}</a>
+                                            <span class="text-muted">{{$usr->paterno}} {{$usr->materno}}</span>
                                             </div>
                                         </div></td>
                                     <td>{{$usr->email}}</td>
                                     <td><a href="{{action('WorkoutController@index', $usr->id)}}" class="btn btn-sm btn-success font-weight-bolder  ">Programar rutina</a></td>
                                     <td><a href="{{action('AssignmentController@index', $usr->id)}}" class="btn btn-sm btn-primary font-weight-bolder ">Asignar ejercicio</a></td>
-                                    <td><a href="#" class="btn btn-sm btn-warning font-weight-bolder ">Ver monitoreo</a></td>
+                                    <td><a href="{{action('MonitoringController@index', $usr->id)}}" class="btn btn-sm btn-warning font-weight-bolder ">Ver monitoreo</a></td>
                                 </tr>
                             @endforeach
                             

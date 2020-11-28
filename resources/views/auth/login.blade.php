@@ -47,7 +47,7 @@
                 <a >¿Aún no tienes una cuenta?</a>
             	<a href="{{ route('register') }}">Registrate</a>
             	<button type="submit" class="btn btn-primary">
-                    {{ __('Login') }}
+                    {{"Iniciar sesión"}}
                 </button>
 
             </form>

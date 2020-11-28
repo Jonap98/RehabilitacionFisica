@@ -13,6 +13,7 @@ class WorkoutController extends Controller
 {
     public function index($id)
     {
+        //dd($id);
         $usr = User::where("id", "=", $id)->get();
         $exercises = Exercise::where("active", "=", "1")->orderBy('active', 'ASC')->get();
         //dd($exercises);

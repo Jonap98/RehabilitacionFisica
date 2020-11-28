@@ -27,10 +27,6 @@ class AssignmentController extends Controller
     {
         $th = Exercise::select('id_therapy')->where("id", "=", $request->id_exercise)->get()->first();
         $th = (integer)$th['id_therapy'];
-        //dd($th);
-        //dd($id);
-        //dd($request->id_therapy);
-        //dd($id);
         $assignment = new Assignment();
 
         $max = \DB::table('exercise')->max('id');
@@ -46,6 +42,19 @@ class AssignmentController extends Controller
         $notification = array(
             'message' => 'Registro actualizado sactisfactoriamente', #creamos el mensaje y le damos valor
             'alert-type' => 'success' #elegimos el tipo de alerta(succes, error, warning, etc.)
+        );
+
+        return back()->with($notification);
+    }
+
+    public function destroy(Request $request)
+    {
+        dd($request);
+        Assignment::destroy($request->assignment_id);
+
+        $notification = array(
+            'message' => 'Asignación eliminada satisfactoriamente',
+            'alert-type' => 'success'
         );
 
         return back()->with($notification);

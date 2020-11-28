@@ -39,12 +39,14 @@
 		</style>
 		
 	</head>
+	<link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+
 	<!--begin::Global Theme Bundle(used by all pages)-->
-	<script src="assets/plugins/global/plugins.bundle.js?v=7.0.4"></script>
-	<script src="assets/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.4"></script>
-	<script src="assets/js/scripts.bundle.js?v=7.0.4"></script>
+	<script src="{{asset('assets/plugins/global/plugins.bundle.js?v=7.0.4')}}"></script>
+	<script src="{{asset('assets/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.4')}}"></script>
+	<script src="{{asset('assets/js/scripts.bundle.js?v=7.0.4')}}"></script>
 	<!--end::Global Theme Bundle-->
 	<!--begin::Page Scripts(used by this page)-->
-		<script src="assets/js/pages/widgets.js?v=7.0.4"></script>
+		<script src="{{asset('assets/js/pages/widgets.js?v=7.0.4')}}"></script>
 		<!--end::Page Scripts-->
 	<!--end::Head-->

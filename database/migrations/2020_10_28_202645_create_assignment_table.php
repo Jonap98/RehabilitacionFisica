@@ -21,6 +21,7 @@ class CreateAssignmentTable extends Migration
             $table->foreign('id_user')->references('id')->on('users');
             $table->integer('id_therapy')->unsigned();
             $table->foreign('id_therapy')->references('id')->on('therapy');
+            $table->boolean('favorite')->default(0);
             $table->timestamps();
         });
     }

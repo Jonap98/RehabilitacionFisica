@@ -336,7 +336,7 @@ a:hover{
                 <a >¿Ya tienes una cuenta?</a>
             	<a href="{{ route('login') }}">Inicia sesión</a>
             	<button type="submit" class="btn btn-primary">
-                    {{ __('Register') }}
+                    {{ "Registrarse"}}
                 </button>
 
             </form>
