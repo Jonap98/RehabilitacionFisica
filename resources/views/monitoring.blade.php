@@ -78,6 +78,12 @@
                             </div>
                             <!--end::Content-->
                         </div>
+                        <div class="flex-grow-1">
+                            @foreach ($user as $usr)
+                                <td><a href="{{action('WorkoutController@index', $usr->id)}}" class="btn btn-sm btn-success font-weight-bolder  ">Programar rutina</a></td>
+                                <td><a href="{{action('AssignmentController@index', $usr->id)}}" class="btn btn-sm btn-primary font-weight-bolder ">Asignar ejercicio</a></td>
+                            @endforeach
+                        </div>
                         @endforeach
                         <!--end::Info-->
                     </div>
@@ -166,7 +172,7 @@
                 <div class="card-body">
                     <div class="card-body" style="overflow: hidden">
                         <!--begin: Datatable-->
-                        <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
+                        <table class="table table-separate table-head-custom table-checkable" >
                             <thead>
                                 <th>ID Ejercicio</th>
                                     <th>Ejercicio</th>
@@ -236,70 +242,51 @@
                 </div>
             </div>
 
+            @include('playbacks')
+
+
+            {{--
             <div class="card-title">
-                <h3 class="card-label">Reprodcciones
+                <h3 class="card-label">Reproducciones
             </div>
             
             <div class="card card-custom gutter-b">
                 <div class="card-body">
                     <div class="card-body" style="overflow: hidden">
-                        <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
+                        <table class="table table-bordered table-checkable" id="kt_datatable1" style="margin-top: 13px !important">
                             <thead>
-                                <th>ID Ejercicio</th>
-                                    <th>Ejercicio</th>
-                                    <th>Terapia</th>
-                                    <th>Fecha de inicio</th>
-                                    <th>Fecha de fin</th>
-                                    <th>Acción</th>
-                                {{--@foreach ($campos as $th)
-                                    <th scope="col">{{ $th }}</th>                  
-                                @endforeach --}}
+                                <th>Sesión</th>
+                                <th>Ejercicio</th>
+                                <th>Id reproducción</th>
+                                <th>Inicio de sesión</th>
+                                <th>Reproducción del ejercicio</th>
                             </thead>
                             <tbody>
-                                {{--<form class="form" action="{{action('ExerciseController@storeExercise')}}" method="post">--}}
-    
-                                <tr scope="row">
-                                <td>id</td>
-                                        {{--<td class="dtr-control sorting_1" tabindex="0">
-                                            <div class="d-flex align-items-center">
-                                                <div class="symbol symbol-50 symbol-light-primary" flex-shrink-0="">
-                                                    <div class="symbol-label font-size-h5">MK</div>
-                                                </div>
-                                                <div class="ml-3">
-                                                <span class="text-dark-75 font-weight-bold line-height-sm d-block pb-2">Milka</span>
-                                                <span class="text-muted">Salazar castro</span>
-                                                </div>
-                                            </div></td>--}}
-                                        <td>name</td>
-                                        <td>name</td>
-                                        <td><span class="btn btn-light-warning btn-sm font-weight-bold btn-upper btn-text">date</span></td>
-                                        <td><span class="btn btn-light-success btn-sm font-weight-bold btn-upper btn-text">date</span></td>
-                                        <td><span class="btn btn-light-success btn-sm font-weight-bold btn-upper btn-text">date</span></td>
-                                            {{--<form action="{{action('AssignmentController@destroy', $ass2->assignment_id)}}" method="POST" onsubmit="return confirmarEliminar()">
-                                                <input type="hidden" name="assignment_id" id="assignment_id" value="{{$ass2->assignment_id}}" hidden>
-                                                <button type="submit"  class="btn btn-success font-weight-bold text-uppercase px-9 py-4">
-                                                
-                                                    {{"Seleccionar"}} 
-                                                </button>
-                                            </form>--}}
-                                        <!--<td><a href="#" class="btn btn-sm btn-success font-weight-bolder  ">Programar rutina</a></td>-->
+                                @foreach ($playB as $play)
+                                    <tr scope="row">
+                                        <td>{{$play->access_id}}</td>
+                                        <td>{{$play->exercise_name}}</td>
+                                        <td>{{$play->playback_id}}</td>
+                                        <td><span class="btn btn-light-success btn-sm font-weight-bold btn-upper btn-text">{{date('d-M-Y, h:i A', strtotime($play->access_created_at))}}</span></td>
+                                        <td><span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text">{{date('d-M-Y, h:i A', strtotime($play->playback_created_at))}}</span></td>
                                     </tr>
-                                
-                                {{--
-                                @foreach ($row as $campo)
-                                <tr scope="row">
-                                    <th >{{$campo->id}}</th>
-                                    <td><div style="width: 8em">{{$campo->name}}</div></td>
-                                    <td><div style="width: 15em">{{$campo->email}}</div></td>
-                                    <td><div style="width: 30em">{{$campo->message}}</div></td>
-                                    <td>{{$campo->created_at}}</td>
-                                </tr>
-                                @endforeach--}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
+                    <br>
                 </div>
             </div>
+            --}}
+
+
+
+            
+
+            
+
+
+
 
             <div class="card-title">
                 <h3 class="card-label">Rutinas asignadas
@@ -309,7 +296,7 @@
                 <div class="card-body">
                     <div class="card-body" style="overflow: hidden">
                         <!--begin: Datatable-->
-                        <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
+                        <table class="table table-separate table-head-custom table-checkable" >
                             <thead>
                                 <th>ID Ejercicio</th>
                                     <th>Ejercicio</th>
@@ -380,6 +367,9 @@
 @endsection
 
 @section('scripts')
+<!--begin::Page Scripts(used by this page)-->
+<script src="{{asset('assets/js/pages/crud/datatables/basic/scrollable.js?v=7.0.4')}}"></script>
+<!--end::Page Scripts-->
 <script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.4')}}"></script>
     <!--end::Page Vendors-->
     <!--begin::Page Scripts(used by this page)-->

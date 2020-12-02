@@ -15,12 +15,12 @@ class CreatePlaybackTable extends Migration
     {
         Schema::create('playback', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_access')->unsigned();
-            $table->foreign('id_access')->references('id')->on('access');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->integer('id_exercise')->unsigned();
             $table->foreign('id_exercise')->references('id')->on('exercise');
+            $table->integer('id_access')->unsigned();
+            $table->foreign('id_access')->references('id')->on('access');
             $table->timestamps();
         });
     }

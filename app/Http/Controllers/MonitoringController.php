@@ -8,6 +8,7 @@ use App\Exercise;
 use App\Assignment;
 use App\Access;
 use DB;
+use App\Playback;
 use Illuminate\Support\Facades\Auth;
 
 class MonitoringController extends Controller
@@ -49,6 +50,20 @@ class MonitoringController extends Controller
         ->distinct()
         ->get();
 
+        $playB = Playback::select('playback.id as playback_id',
+        'playback.id_user as user_id',
+        'playback.id_exercise as exercise_id',
+        'playback.id_access as access_id',
+        'playback.created_at as playback_created_at',
+        'access.id as access_id',
+        'access.created_at as access_created_at',
+        'exercise.name as exercise_name')
+        ->join('access', 'access.id', '=', 'playback.id_access')
+        ->join('exercise', 'exercise.id', '=', 'playback.id_exercise')
+        ->where('playback.id_user', '=', $id)
+        ->orderBy('active', 'ASC')
+        ->get();
+
         //$last = Access:select('created_at')
 
         $count = DB::table('access')->where('id_user', '=', $id)->count();
@@ -64,7 +79,8 @@ class MonitoringController extends Controller
             'workouts' => $workouts,
             'playbacks' => $playbacks,
             'assignment2' => $assignment2,
-            'assignment3' => $assignment3
+            'assignment3' => $assignment3,
+            'playB' => $playB
         ));
     }
 }

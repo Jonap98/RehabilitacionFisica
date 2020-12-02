@@ -9,7 +9,7 @@ class Access extends Model
 {
     protected $table = 'access';
 
-    protected $fillable = ['id_user', 'last_login', 'active'];
+    protected $fillable = ['id', 'id_user', 'last_login', 'active'];
 
     public function saveAccess($request){
         $this->id_user = Auth::user()->id;
