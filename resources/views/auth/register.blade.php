@@ -245,10 +245,11 @@ a:hover{
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input placeholder="Nombre" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input placeholder="Nombre" maxlength="35" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>Nombre inválido</strong>
+                                {{--<strong>{{$message}}</strong>--}}
                             </span>
                         @enderror
                     </div>
@@ -258,10 +259,11 @@ a:hover{
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input placeholder="Apellido Paterno" id="paterno" type="text" class="form-control @error('paterno') is-invalid @enderror" name="paterno" value="{{ old('paterno') }}" required autocomplete="paterno" autofocus>
+                        <input placeholder="Apellido Paterno" maxlength="35" id="paterno" type="text" class="form-control @error('paterno') is-invalid @enderror" name="paterno" value="{{ old('paterno') }}" required autocomplete="paterno" autofocus>
                         @error('paterno')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>Apellido paterno inválido</strong>
+                                {{--<strong>{{$message}}</strong>--}}
                             </span>
                         @enderror
                     </div>
@@ -271,10 +273,10 @@ a:hover{
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input placeholder="Apellido Materno" id="materno" type="text" class="form-control @error('materno') is-invalid @enderror" name="materno" value="{{ old('materno') }}" required autocomplete="materno" autofocus>
+                        <input placeholder="Apellido Materno" maxlength="35" id="materno" type="text" class="form-control @error('materno') is-invalid @enderror" name="materno" value="{{ old('materno') }}" required autocomplete="materno" autofocus>
                         @error('materno')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>Apellido materno inválido</strong>
                             </span>
                         @enderror
                     </div>
@@ -284,10 +286,10 @@ a:hover{
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input placeholder="Usuario" id="user" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus>
+                        <input placeholder="Usuario" maxlength="25" id="user" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus>
                         @error('user')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>Ya existe una cuenta vinculada con ese usuario.</strong>
                             </span>
                         @enderror
                     </div>
@@ -297,10 +299,10 @@ a:hover{
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-                        <input placeholder="Email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input placeholder="Email" maxlength="60" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong>Ya existe una cuenta vinculada con ese email.</strong>
                             </span>
                         @enderror
            		   </div>
@@ -310,10 +312,10 @@ a:hover{
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-                        <input placeholder="Contraseña" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input placeholder="Contraseña" maxlength="255" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong>Las contraseñas deben de ser iguales. Mínimo 8 caracteres</strong>
                             </span>
                         @enderror
             	   </div>
@@ -327,7 +329,7 @@ a:hover{
                          <input placeholder="Confirmar contraseña" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                          @error('password')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong>Las contraseñas deben de ser iguales. Mínimo 8 caracteres</strong>
                             </span>
                         @enderror
                     </div>
